@@ -632,6 +632,10 @@ namespace Squirrel.Update
 
         async Task createExecutableStubForExe(string fullName)
         {
+            if(fullName.EndsWith("_ExecutionStub.exe")) {
+                return;
+            }
+
             var target = Path.Combine(
                 Path.GetDirectoryName(fullName),
                 Path.GetFileNameWithoutExtension(fullName) + "_ExecutionStub.exe");
